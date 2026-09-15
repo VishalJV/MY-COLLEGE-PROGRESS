@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Procurement — SIH 2026 Demo</title>
+<style>
+:root{--green:#16834b;--green2:#20b26b;--dark:#10251b;--muted:#68776f;--bg:#f5f8f6;--card:#fff;--line:#dfe8e2;--amber:#e99b18;--red:#d9534f;--blue:#3478d4}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--dark)}
+button{font:inherit;cursor:pointer}.app{display:flex;min-height:100vh}.side{width:245px;background:#0f251a;color:#dcebe1;padding:22px 16px;position:fixed;inset:0 auto 0 0}.brand{font-size:20px;font-weight:800;display:flex;gap:10px;align-items:center;padding:8px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#2ad77d,#117743);display:grid;place-items:center;color:white;font-weight:900}.sub{font-size:11px;color:#91aa9a;margin:2px 8px 25px}.nav button{width:100%;border:0;background:transparent;color:#b9cbbf;text-align:left;padding:13px 12px;border-radius:10px;margin:2px 0}.nav button.active,.nav button:hover{background:#193c29;color:#fff}.side .foot{position:absolute;bottom:20px;left:20px;right:20px;font-size:11px;color:#799183}.main{margin-left:245px;width:calc(100% - 245px);padding:28px 34px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.eyebrow{color:var(--green);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.12em}.title{font-size:30px;font-weight:850;margin:4px 0}.top p{margin:0;color:var(--muted)}.badge{background:#e5f7ed;color:#167343;padding:8px 12px;border-radius:999px;font-weight:700;font-size:12px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 5px 20px #163f2010}.metric .label{font-size:12px;color:var(--muted)}.metric .num{font-size:28px;font-weight:850;margin-top:7px}.metric .small{font-size:11px;color:var(--green);margin-top:5px}.section{margin-top:20px}.section h2{font-size:18px;margin:0 0 12px}.two{display:grid;grid-template-columns:1.35fr .9fr;gap:18px}.flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.step{padding:10px 13px;border-radius:10px;background:#f0f5f2;border:1px solid var(--line);font-size:12px;font-weight:700}.arrow{color:#9aa89f}.queue-head{display:flex;justify-content:space-between;align-items:center}.token{font-size:42px;font-weight:900;color:var(--green);line-height:1}.queuebar{height:10px;background:#e8efea;border-radius:20px;overflow:hidden;margin:14px 0}.queuebar span{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--green),#61d99a);border-radius:20px}.row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #edf1ee;font-size:13px}.row:last-child{border-bottom:0}.status{padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800}.ok{background:#e6f7ed;color:#187344}.wait{background:#fff4dc;color:#9a6410}.info{background:#e7f0ff;color:#2d65ad}.alert{background:#fff0ee;color:#b44a45}.action{border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:#fff;font-weight:750}.secondary{background:#edf4ef;color:#155f3b}.demo-note{background:linear-gradient(135deg,#123b27,#1c6e46);color:#fff}.demo-note p{color:#c8dfd2;font-size:13px;line-height:1.5}.large-number{font-size:34px;font-weight:900}.hidden{display:none}.modal{position:fixed;inset:0;background:#08170d99;display:none;place-items:center;padding:20px}.modal.show{display:grid}.modalbox{background:#fff;border-radius:18px;padding:25px;max-width:520px;width:100%}.modalbox h2{margin-top:0}.form{display:grid;gap:10px}.form input,.form select{padding:12px;border:1px solid var(--line);border-radius:9px}.toast{position:fixed;right:25px;bottom:25px;background:#123b27;color:white;padding:13px 17px;border-radius:10px;display:none;box-shadow:0 10px 30px #0003}.toast.show{display:block}@media(max-width:900px){.side{width:70px}.brand span,.sub,.nav button span,.side .foot{display:none}.main{margin-left:70px;width:calc(100% - 70px);padding:20px}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}@media(max-width:600px){.grid{grid-template-columns:1fr}.main{padding:14px}.title{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><div class="logo">SP</div><span>Smart Procurement</span></div>
+  <div class="sub">SIH 2026 • Prototype</div>
+  <div class="nav">
+    <button class="active" onclick="show('dashboard',this)">▦ <span>Dashboard</span></button>
+    <button onclick="show('farmer',this)">👨‍🌾 <span>Farmer Journey</span></button>
+    <button onclick="show('centre',this)">🏢 <span>Centre Operations</span></button>
+    <button onclick="show('payment',this)">₹ <span>Payment Tracking</span></button>
+  </div>
+  <div class="foot">Problem Statement 26032<br>Smart Automation</div>
+</aside>
+
+<main class="main">
+<header class="top">
+  <div><div class="eyebrow">Ministry of Consumer Affairs • Demo</div><div class="title">Smart Procurement Queue & Status</div><p>Make the procurement journey predictable — from slot booking to payment.</p></div>
+  <div class="badge">● Prototype Mode</div>
+</header>
+
+<section id="dashboard">
+<div class="grid">
+  <div class="card metric"><div class="label">Farmers booked today</div><div class="num" id="booked">128</div><div class="small">↑ 12% vs yesterday</div></div>
+  <div class="card metric"><div class="label">Live queue</div><div class="num" id="live">17</div><div class="small">Estimated wait: 42 min</div></div>
+  <div class="card metric"><div class="label">Procurement completed</div><div class="num">84</div><div class="small">65.6% of today's bookings</div></div>
+  <div class="card metric"><div class="label">Payments credited</div><div class="num">71</div><div class="small">Transparent status</div></div>
+</div>
+
+<div class="section two">
+<div class="card">
+  <div class="queue-head"><div><div class="label">Farmer live queue</div><h2 style="margin:4px 0">Your token</h2></div><div class="token" id="token">A-042</div></div>
+  <div class="queuebar"><span id="bar"></span></div>
+  <div class="row"><span>Queue position</span><b id="position">17 of 42</b></div>
+  <div class="row"><span>Estimated waiting time</span><b id="waittime">42 minutes</b></div>
+  <div class="row"><span>Procurement centre</span><b>Central Procurement Centre</b></div>
+  <div style="display:flex;gap:8px;margin-top:14px"><button class="action" onclick="advanceQueue()">Simulate queue movement</button><button class="action secondary" onclick="notify()">Send SMS alert</button></div>
+</div>
+<div class="card demo-note">
+  <div class="eyebrow" style="color:#8ce7b4">Judge Demo</div>
+  <h2>Why this matters</h2>
+  <p>Farmers don't just receive a token. They can see their live position and estimated wait, while centre staff can plan capacity and arrivals.</p>
+  <div class="large-number">↓ Waiting uncertainty</div>
+  <p style="margin-bottom:0">One connected workflow: registration → slot → token → queue → procurement → payment.</p>
+</div>
+</div>
+
+<div class="section card">
+<h2>End-to-end workflow</h2>
+<div class="flow">
+<div class="step">1. Register Farmer</div><div class="arrow">→</div><div class="step">2. Book Slot</div><div class="arrow">→</div><div class="step">3. Get Token</div><div class="arrow">→</div><div class="step">4. Live Queue</div><div class="arrow">→</div><div class="step">5. Procurement</div><div class="arrow">→</div><div class="step">6. Payment Update</div>
+</div>
+</div>
+
+<div class="section two">
+<div class="card">
+<h2>Today's centre activity</h2>
+<div class="row"><span>Booked slots</span><b>128</b></div>
+<div class="row"><span>Farmers arrived</span><b>96</b></div>
+<div class="row"><span>Procurement accepted</span><span class="status ok">84</span></div>
+<div class="row"><span>Quality verification pending</span><span class="status wait">7</span></div>
+<div class="row"><span>Payments initiated</span><span class="status info">79</span></div>
+</div>
+<div class="card">
+<h2>Smart alerts</h2>
+<div class="row"><span>Slot reminder</span><span class="status ok">Sent</span></div>
+<div class="row"><span>Queue movement</span><span class="status ok">Live</span></div>
+<div class="row"><span>Centre delay</span><span class="status wait">Monitoring</span></div>
+<div class="row"><span>Payment credit</span><span class="status ok">71 credited</span></div>
+</div>
+</div>
+</section>
+
+<section id="farmer" class="hidden">
+<div class="card"><div class="eyebrow">Farmer Journey</div><h2>Book a procurement slot</h2>
+<p style="color:var(--muted)">Demonstrate the complete farmer-facing experience.</p>
+<button class="action" onclick="openModal()">＋ Register / Book Slot</button>
+<div class="section grid">
+<div class="card metric"><div class="label">Selected centre</div><div class="num" style="font-size:20px">Central Centre</div><div class="small">12 km • 18 slots left</div></div>
+<div class="card metric"><div class="label">Your token</div><div class="num" style="font-size:25px" id="farmerToken">A-042</div><div class="small">Live position: 17</div></div>
+<div class="card metric"><div class="label">Procurement status</div><div class="num" style="font-size:20px">In Queue</div><div class="small">Quality check pending after weighment</div></div>
+<div class="card metric"><div class="label">Payment</div><div class="num" style="font-size:20px">Not initiated</div><div class="small">Updates appear automatically</div></div>
+</div></div>
+</section>
+
+<section id="centre" class="hidden">
+<div class="grid">
+<div class="card metric"><div class="label">Centre capacity</div><div class="num">150</div><div class="small">Daily planned capacity</div></div>
+<div class="card metric"><div class="label">Expected arrivals</div><div class="num">128</div><div class="small">Based on booked slots</div></div>
+<div class="card metric"><div class="label">Current queue</div><div class="num">17</div><div class="small">Dynamic token engine</div></div>
+<div class="card metric"><div class="label">Load</div><div class="num">85%</div><div class="small">Within manageable range</div></div>
+</div>
+<div class="section card"><h2>Centre control panel</h2>
+<div class="row"><span>09:00–10:00</span><span class="status ok">22 booked</span></div>
+<div class="row"><span>10:00–11:00</span><span class="status ok">31 booked</span></div>
+<div class="row"><span>11:00–12:00</span><span class="status wait">38 booked • High load</span></div>
+<div class="row"><span>12:00–13:00</span><span class="status info">27 booked</span></div>
+<button class="action" style="margin-top:12px" onclick="toast('Centre staff notified about high-load slot')">Notify staff about load</button>
+</div>
+</section>
+
+<section id="payment" class="hidden">
+<div class="card"><div class="eyebrow">End-to-end transparency</div><h2>Procurement & Payment Status</h2>
+<div class="section">
+<div class="row"><span>Arrival</span><span class="status ok">Completed</span></div>
+<div class="row"><span>Weighment</span><span class="status ok">Completed • 42.5 q</span></div>
+<div class="row"><span>Quality check</span><span class="status ok">Accepted</span></div>
+<div class="row"><span>Procurement</span><span class="status ok">Accepted</span></div>
+<div class="row"><span>Payment initiation</span><span class="status info">Processing</span></div>
+<div class="row"><span>Payment credited</span><span class="status wait">Awaiting bank confirmation</span></div>
+</div></div>
+</section>
+</main>
+</div>
+
+<div class="modal" id="modal"><div class="modalbox">
+<h2>Farmer registration & slot booking</h2>
+<div class="form"><input id="name" placeholder="Farmer name"><input id="phone" placeholder="Mobile number"><select><option>Central Procurement Centre</option><option>North Procurement Centre</option><option>East Procurement Centre</option></select><select><option>Today • 11:00–12:00</option><option>Today • 12:00–13:00</option><option>Tomorrow • 09:00–10:00</option></select>
+<div style="display:flex;gap:8px"><button class="action" onclick="book()">Confirm slot</button><button class="action secondary" onclick="closeModal()">Cancel</button></div></div></div></div>
+<div class="toast" id="toastbox"></div>
+
+<script>
+function show(id,btn){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function advanceQueue(){let p=+document.getElementById('position').textContent.split(' ')[0];if(p>1)p--;document.getElementById('position').textContent=p+' of 42';document.getElementById('waittime').textContent=(p*2.5).toFixed(0)+' minutes';document.getElementById('bar').style.width=Math.max(8,100-p*2)+'%';toast('Queue updated • Token A-042 is now #'+p)}
+function notify(){toast('SMS demo sent: Your token A-042 is #'+document.getElementById('position').textContent.split(' ')[0]+'.')}
+function toast(t){let x=document.getElementById('toastbox');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),2800)}
+function openModal(){document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function book(){let n=document.getElementById('name').value||'Farmer';document.getElementById('token').textContent='B-057';document.getElementById('farmerToken').textContent='B-057';document.getElementById('position').textContent='12 of 42';document.getElementById('waittime').textContent='30 minutes';closeModal();toast('Slot confirmed for '+n+' • Token B-057 generated');}
+</script>
+</body>
+</html>

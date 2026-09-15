@@ -1,7 +1,7 @@
 print("Hola")#programmig languages learn chestunnappudu 2 languages ni manam use chestam 
 # 1st thing is the programming language itself and the next one is the terminology of the language which we use to communicate 
 # each chapter build on the previous one so dont miss even a single detail for the first time 
-# IDE antey INTEGRATED DEVLOPMENT ENVIRONMENT (REMEMBER THIS JV)
+# IDE antey integrated development environment
 # most of this code is in comments so please be carefula nd be attentive atleast while you read this file 
 # first of all python ni nerchukovali antey we ned to develop these major qualities in us 1.engineering mindset , 2. think like a computer scientist , 3. do mathematics like mathematicians coz you know we would be facing a lot of compplex logic and calculations in the future 
 # basic arthimatic operati=ors are + - * /
@@ -32,38 +32,5 @@ print(len("vishal"))# ippudu python vishal aney discrete character lo unna all l
 # next topic enti antey values and types 
 # type funtion  idi enduku use chestamu antey we have different type fo funtions like integer anf float and strings to identify each of thema and take a action of our desired wish on them  
 print(type(45)) # ippudu ee print message ni print chestundi 
-# type funtion gives us the type of the function that we got . prathi output oka type of function eyy rather it would be integer or string or floating value or a boolean value
+# type funtion gives us the type of the function that we
 # zero based indexing mawa idi chala imp topic in our python  so antey manam aka single variable teeskoni manamu aa single variable lo values ni kaani leda string s ni kaani leda integers ni kaani locate chestam so 
-#loops two types untai if loop and while loop for  loop ni manamu eppudu use chestam antey when we have specific set of boundarys or fixed values or fixed ranges for example
-i=1
-for i in range(1,101):
-    print(i)
-    i=i+1
-    # ee condition lo manaki fixed ste of values varakey condition repeat avutundi not beyond 101
-       # while loop 
-j=1  
-while j<=10 :
-    print(j) 
-    j= j+1
-    jogu=1
-while jogu<10:
-    print(jogu) 
-    jogu=jogu+1   
-# neeku edaina kottha function telisinappudu kavali aney nuvvu moistakes chesi aa function ni total gaa artham chesukovali try to 
-# make more mistakes rather than leaving them learn from that mistakes 
-# /////////////////////////////  UNIT 2 variables and statements////////////////////////////
-# variable antey oka name that is assigned to a particular value aa variable ki oka value definetly asiign ayyi undali must and should main condition
-# assignment antey thats a single line code that actually defines the variable its value assignment lo 3 parts untai variable part the operator (mostly = sign eyy untadi variable kabatti) and the next value that is going to be linked with the varable
-# assign statement run chesina tarvatha output raadu manamu malli define cheyyali what should be the output ani 
-# output ni print cheyyadaniki manamu print startment vaadathamu so manamu 
-
-
-
-
-
-
-
-
-
-
-
