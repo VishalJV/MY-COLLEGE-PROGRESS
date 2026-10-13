@@ -1,0 +1,82 @@
+## strings antey its a data type 
+## strings are just  mixed characters
+## char== any letters 
+## strings == mixing of characters\
+##there are 3 ways  to describe strings '' or "" or """"()"""" braces lo string ni define chestamu 
+########### "for convinience alwas use double quotes"
+str1='vishal'
+str2="vishal's string"  
+str3="""vishal's string's string"""
+print(str1+str2)
+print(str2)
+print(str3)
+##### concatenation just joining strings with out space(str1+str2)
+## escape sequence characters
+########### "\n"-----> this can print the next part of the string into the next line    #######REMEMBER THIS YOU ALWAYS FORGET THIS####
+## example
+jv="this is a string.\ni'm using it in python"
+print(jv)#see the string after the \n is gone into next line 
+##length of a string
+#this is a length function ###any length of the sting find out cheyyadaniki manam ee function use chestamu 
+a=len(jv)
+print(a)
+## space ki kuda length calculate ayytundi . all the special chars and digits can also be counted
+#######Indexing#####( For accessing a sprecific char in a string)
+## when ever we create a string pyhton automatically defines a number to each of the characters in the string so that is called indexing
+## for example "VISHAL" this is a string so v--0,i--1,s--2,h--3,a--4,l--5
+## ee format lo python strings ki okko value predefing chesi pedutundi 
+## for example   ##square braces lo numbering ivvali##
+jv1="VISHAL"
+print(jv1[2]) ## s letter print kavali so adey print ayyindi 
+##spaces ki kudaa indexing valid 
+## we can only access the specific char in indexing we can't modify it...
+#### Slicing ####
+## accessing parts of a stirng  ### starting index include aytundi but ending index is not included###
+jv1="VISHAL_IS_A_GOOD_BOY"
+print(jv1[0:7])
+## (trick) manaki last index input ivvali annappudu aa indexing place lo len of the str istamu... 
+## example 2
+print(jv1[0:]) ## last index ni miss chestey python automatically last index varaku veltundi no problem in this case...
+## or example2 
+print(jv1[:6])  ## ee case lo automatically first characters nundi start aytundi 0 nundii start aytundi upto 5 
+##### negative indexing 
+ # -1 nundi start ayyitundi 
+#  V   I   S   H   A   L     both indexing are true no problem in using anyone of them
+# -6  -5  -4  -3  -2  -1
+
+###### FUNCTIONS WITH STRING 
+# 1.  ends with 
+# 2.  capitalise
+# 3.  replae
+# 4.  find
+# 5.  count
+
+##1. str.endswith("jv")  ---jv is a substring if the string endswith sustring we will get true else false
+str="vishal"
+print(str.endswith("al"))
+
+## 2. 1st character ni capitalise chestundi
+str= 'vishal'
+print(str.capitalize())  ### manam original string ni change cheyyaldeu just string ni print statement lo ne modify chesinamu
+# if we want to change the original string we can use str=str.capitalise() then the origianl string changes
+## 3.replace
+str="IAM_JOGU_VISHAL_FROM_JKLU"
+str=str.replace("O","I")   ## in this case the replace function is case sensitive so be careful at this point
+print(str)
+
+## 4. find(can a word exist in thr string ?)
+## first time aa word or letter eppudu vaccindo appudu manaki aa index value vastundi 
+print(str.find("V")) 
+## if the word or char  we are searching is not there in the actual string we get -1 as output 
+## for example 
+ 
+## 5. count function 
+print(str.count("V"))
+## enni saarlu aa character reprat ayyindi in the main string adi cheptundi
+## not that tough
+
+a=str(input())
+print(len(a))
+
+b=str(input())
+print(b.count("$"))

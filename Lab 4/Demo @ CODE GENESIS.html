@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Procurement — SIH 2026 Demo</title>
+<style>
+:root{--green:#16834b;--green2:#20b26b;--dark:#10251b;--muted:#68776f;--bg:#f5f8f6;--card:#fff;--line:#dfe8e2;--amber:#e99b18;--red:#d9534f;--blue:#3478d4}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--dark)}
+button{font:inherit;cursor:pointer}.app{display:flex;min-height:100vh}.side{width:245px;background:#0f251a;color:#dcebe1;padding:22px 16px;position:fixed;inset:0 auto 0 0}.brand{font-size:20px;font-weight:800;display:flex;gap:10px;align-items:center;padding:8px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#2ad77d,#117743);display:grid;place-items:center;color:white;font-weight:900}.sub{font-size:11px;color:#91aa9a;margin:2px 8px 25px}.nav button{width:100%;border:0;background:transparent;color:#b9cbbf;text-align:left;padding:13px 12px;border-radius:10px;margin:2px 0}.nav button.active,.nav button:hover{background:#193c29;color:#fff}.side .foot{position:absolute;bottom:20px;left:20px;right:20px;font-size:11px;color:#799183}.main{margin-left:245px;width:calc(100% - 245px);padding:28px 34px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.eyebrow{color:var(--green);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.12em}.title{font-size:30px;font-weight:850;margin:4px 0}.top p{margin:0;color:var(--muted)}.badge{background:#e5f7ed;color:#167343;padding:8px 12px;border-radius:999px;font-weight:700;font-size:12px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 5px 20px #163f2010}.metric .label{font-size:12px;color:var(--muted)}.metric .num{font-size:28px;font-weight:850;margin-top:7px}.metric .small{font-size:11px;color:var(--green);margin-top:5px}.section{margin-top:20px}.section h2{font-size:18px;margin:0 0 12px}.two{display:grid;grid-template-columns:1.35fr .9fr;gap:18px}.flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.step{padding:10px 13px;border-radius:10px;background:#f0f5f2;border:1px solid var(--line);font-size:12px;font-weight:700}.arrow{color:#9aa89f}.queue-head{display:flex;justify-content:space-between;align-items:center}.token{font-size:42px;font-weight:900;color:var(--green);line-height:1}.queuebar{height:10px;background:#e8efea;border-radius:20px;overflow:hidden;margin:14px 0}.queuebar span{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--green),#61d99a);border-radius:20px}.row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #edf1ee;font-size:13px}.row:last-child{border-bottom:0}.status{padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800}.ok{background:#e6f7ed;color:#187344}.wait{background:#fff4dc;color:#9a6410}.info{background:#e7f0ff;color:#2d65ad}.alert{background:#fff0ee;color:#b44a45}.action{border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:#fff;font-weight:750}.secondary{background:#edf4ef;color:#155f3b}.demo-note{background:linear-gradient(135deg,#123b27,#1c6e46);color:#fff}.demo-note p{color:#c8dfd2;font-size:13px;line-height:1.5}.large-number{font-size:34px;font-weight:900}.hidden{display:none}.modal{position:fixed;inset:0;background:#08170d99;display:none;place-items:center;padding:20px}.modal.show{display:grid}.modalbox{background:#fff;border-radius:18px;padding:25px;max-width:520px;width:100%}.modalbox h2{margin-top:0}.form{display:grid;gap:10px}.form input,.form select{padding:12px;border:1px solid var(--line);border-radius:9px}.toast{position:fixed;right:25px;bottom:25px;background:#123b27;color:white;padding:13px 17px;border-radius:10px;display:none;box-shadow:0 10px 30px #0003}.toast.show{display:block}@media(max-width:900px){.side{width:70px}.brand span,.sub,.nav button span,.side .foot{display:none}.main{margin-left:70px;width:calc(100% - 70px);padding:20px}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}@media(max-width:600px){.grid{grid-template-columns:1fr}.main{padding:14px}.title{font-size:24px}}
+
+.lang-wrap{margin:0 0 18px;padding:12px;background:#173627;border:1px solid #2a4d3a;border-radius:12px}
+.lang-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#8fa99a;margin-bottom:7px;font-weight:800}
+#languageSelect{width:100%;padding:9px 10px;border-radius:9px;border:1px solid #476a57;background:#102b1e;color:#fff;font-weight:700;outline:none}
+.lang-hint{font-size:10px;color:#9eb5a7;margin-top:6px}
+
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><div class="logo">SP</div><span>Smart Procurement</span></div>
+  <div class="sub">SIH 2026 • Prototype</div>
+  <div class="lang-wrap">
+    <label class="lang-label" for="languageSelect">🌐 Language</label>
+    <select id="languageSelect" onchange="setLanguage(this.value)" aria-label="Select language">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="te">తెలుగు</option>
+      <option value="ta">தமிழ்</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="mr">मराठी</option>
+      <option value="bn">বাংলা</option>
+      <option value="pa">ਪੰਜਾਬੀ</option>
+    </select>
+    <div class="lang-hint">Choose a language for the farmer view</div>
+  </div>
+
+  <div class="nav">
+    <button class="active" onclick="show('dashboard',this)">▦ <span data-i18n="dashboard">Dashboard</span></button>
+    <button onclick="show('farmer',this)">👨‍🌾 <span data-i18n="farmerJourney">Farmer Journey</span></button>
+    <button onclick="show('centre',this)">🏢 <span data-i18n="centreOps">Centre Operations</span></button>
+    <button onclick="show('payment',this)">₹ <span data-i18n="paymentTracking">Payment Tracking</span></button>
+  </div>
+  <div class="foot">Problem Statement 26032<br>Smart Automation</div>
+</aside>
+
+<main class="main">
+<header class="top">
+  <div><div class="eyebrow" data-i18n="ministry">Ministry of Consumer Affairs • Demo</div><div class="title" data-i18n="title">Smart Procurement Queue & Status</div><p data-i18n="subtitle">Make the procurement journey predictable — from slot booking to payment.</p></div>
+  <div class="badge">● Prototype Mode</div>
+</header>
+
+<section id="dashboard">
+<div class="grid">
+  <div class="card metric"><div class="label" data-i18n="bookedToday">Farmers booked today</div><div class="num" id="booked">128</div><div class="small">↑ 12% vs yesterday</div></div>
+  <div class="card metric"><div class="label" data-i18n="liveQueue">Live queue</div><div class="num" id="live">17</div><div class="small" data-i18n="estimatedWait42">Estimated wait: 42 min</div></div>
+  <div class="card metric"><div class="label" data-i18n="procurementCompleted">Procurement completed</div><div class="num">84</div><div class="small">65.6% of today's bookings</div></div>
+  <div class="card metric"><div class="label" data-i18n="paymentsCredited">Payments credited</div><div class="num">71</div><div class="small">Transparent status</div></div>
+</div>
+
+<div class="section two">
+<div class="card">
+  <div class="queue-head"><div><div class="label">Farmer live queue</div><h2 style="margin:4px 0" data-i18n="yourToken">Your token</h2></div><div class="token" id="token">A-042</div></div>
+  <div class="queuebar"><span id="bar"></span></div>
+  <div class="row"><span data-i18n="queuePosition">Queue position</span><b id="position">17 of 42</b></div>
+  <div class="row"><span data-i18n="estimatedWaiting">Estimated waiting time</span><b id="waittime">42 minutes</b></div>
+  <div class="row"><span data-i18n="procurementCentre">Procurement centre</span><b>Central Procurement Centre</b></div>
+  <div style="display:flex;gap:8px;margin-top:14px"><button class="action" onclick="advanceQueue()" data-i18n="simulateQueue">Simulate queue movement</button><button class="action secondary" onclick="notify()" data-i18n="sendSms">Send SMS alert</button></div>
+</div>
+<div class="card demo-note">
+  <div class="eyebrow" style="color:#8ce7b4" data-i18n="judgeDemo">Judge Demo</div>
+  <h2 data-i18n="whyMatters">Why this matters</h2>
+  <p>Farmers don't just receive a token. They can see their live position and estimated wait, while centre staff can plan capacity and arrivals.</p>
+  <div class="large-number" data-i18n="waitingUncertainty">↓ Waiting uncertainty</div>
+  <p style="margin-bottom:0">One connected workflow: registration → slot → token → queue → procurement → payment.</p>
+</div>
+</div>
+
+<div class="section card">
+<h2 data-i18n="workflow">End-to-end workflow</h2>
+<div class="flow">
+<div class="step">1. Register Farmer</div><div class="arrow">→</div><div class="step">2. Book Slot</div><div class="arrow">→</div><div class="step">3. Get Token</div><div class="arrow">→</div><div class="step">4. Live Queue</div><div class="arrow">→</div><div class="step">5. Procurement</div><div class="arrow">→</div><div class="step">6. Payment Update</div>
+</div>
+</div>
+
+<div class="section two">
+<div class="card">
+<h2>Today's centre activity</h2>
+<div class="row"><span>Booked slots</span><b>128</b></div>
+<div class="row"><span>Farmers arrived</span><b>96</b></div>
+<div class="row"><span>Procurement accepted</span><span class="status ok">84</span></div>
+<div class="row"><span>Quality verification pending</span><span class="status wait">7</span></div>
+<div class="row"><span>Payments initiated</span><span class="status info">79</span></div>
+</div>
+<div class="card">
+<h2>Smart alerts</h2>
+<div class="row"><span>Slot reminder</span><span class="status ok">Sent</span></div>
+<div class="row"><span>Queue movement</span><span class="status ok">Live</span></div>
+<div class="row"><span>Centre delay</span><span class="status wait">Monitoring</span></div>
+<div class="row"><span>Payment credit</span><span class="status ok">71 credited</span></div>
+</div>
+</div>
+</section>
+
+<section id="farmer" class="hidden">
+<div class="card"><div class="eyebrow" data-i18n="farmerJourney">Farmer Journey</div><h2 data-i18n="bookSlot">Book a procurement slot</h2>
+<p style="color:var(--muted)">Demonstrate the complete farmer-facing experience.</p>
+<button class="action" onclick="openModal()" data-i18n="registerBook">＋ Register / Book Slot</button>
+<div class="section grid">
+<div class="card metric"><div class="label">Selected centre</div><div class="num" style="font-size:20px">Central Centre</div><div class="small">12 km • 18 slots left</div></div>
+<div class="card metric"><div class="label">Your token</div><div class="num" style="font-size:25px" id="farmerToken">A-042</div><div class="small">Live position: 17</div></div>
+<div class="card metric"><div class="label">Procurement status</div><div class="num" style="font-size:20px">In Queue</div><div class="small">Quality check pending after weighment</div></div>
+<div class="card metric"><div class="label">Payment</div><div class="num" style="font-size:20px">Not initiated</div><div class="small">Updates appear automatically</div></div>
+</div></div>
+</section>
+
+<section id="centre" class="hidden">
+<div class="grid">
+<div class="card metric"><div class="label">Centre capacity</div><div class="num">150</div><div class="small">Daily planned capacity</div></div>
+<div class="card metric"><div class="label">Expected arrivals</div><div class="num">128</div><div class="small">Based on booked slots</div></div>
+<div class="card metric"><div class="label">Current queue</div><div class="num">17</div><div class="small">Dynamic token engine</div></div>
+<div class="card metric"><div class="label">Load</div><div class="num">85%</div><div class="small">Within manageable range</div></div>
+</div>
+<div class="section card"><h2>Centre control panel</h2>
+<div class="row"><span>09:00–10:00</span><span class="status ok">22 booked</span></div>
+<div class="row"><span>10:00–11:00</span><span class="status ok">31 booked</span></div>
+<div class="row"><span>11:00–12:00</span><span class="status wait">38 booked • High load</span></div>
+<div class="row"><span>12:00–13:00</span><span class="status info">27 booked</span></div>
+<button class="action" style="margin-top:12px" onclick="toast('Centre staff notified about high-load slot')">Notify staff about load</button>
+</div>
+</section>
+
+<section id="payment" class="hidden">
+<div class="card"><div class="eyebrow" data-i18n="transparency">End-to-end transparency</div><h2 data-i18n="procurementPayment">Procurement & Payment Status</h2>
+<div class="section">
+<div class="row"><span>Arrival</span><span class="status ok">Completed</span></div>
+<div class="row"><span>Weighment</span><span class="status ok">Completed • 42.5 q</span></div>
+<div class="row"><span>Quality check</span><span class="status ok">Accepted</span></div>
+<div class="row"><span>Procurement</span><span class="status ok">Accepted</span></div>
+<div class="row"><span>Payment initiation</span><span class="status info">Processing</span></div>
+<div class="row"><span>Payment credited</span><span class="status wait">Awaiting bank confirmation</span></div>
+</div></div>
+</section>
+</main>
+</div>
+
+<div class="modal" id="modal"><div class="modalbox">
+<h2>Farmer registration & slot booking</h2>
+<div class="form"><input id="name" placeholder="Farmer name"><input id="phone" placeholder="Mobile number"><select><option>Central Procurement Centre</option><option>North Procurement Centre</option><option>East Procurement Centre</option></select><select><option>Today • 11:00–12:00</option><option>Today • 12:00–13:00</option><option>Tomorrow • 09:00–10:00</option></select>
+<div style="display:flex;gap:8px"><button class="action" onclick="book()">Confirm slot</button><button class="action secondary" onclick="closeModal()">Cancel</button></div></div></div></div>
+<div class="toast" id="toastbox"></div>
+
+<script>
+function show(id,btn){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function advanceQueue(){let p=+document.getElementById('position').textContent.split(' ')[0];if(p>1)p--;document.getElementById('position').textContent=p+' of 42';document.getElementById('waittime').textContent=(p*2.5).toFixed(0)+' minutes';document.getElementById('bar').style.width=Math.max(8,100-p*2)+'%';toast('Queue updated • Token A-042 is now #'+p)}
+function notify(){toast('SMS demo sent: Your token A-042 is #'+document.getElementById('position').textContent.split(' ')[0]+'.')}
+function toast(t){let x=document.getElementById('toastbox');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),2800)}
+function openModal(){document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function book(){let n=document.getElementById('name').value||'Farmer';document.getElementById('token').textContent='B-057';document.getElementById('farmerToken').textContent='B-057';document.getElementById('position').textContent='12 of 42';document.getElementById('waittime').textContent='30 minutes';closeModal();toast('Slot confirmed for '+n+' • Token B-057 generated');}
+
+const I18N = {
+  en:{ministry:"Ministry of Consumer Affairs • Demo",title:"Smart Procurement Queue & Status",subtitle:"Make the procurement journey predictable — from slot booking to payment.",dashboard:"Dashboard",farmerJourney:"Farmer Journey",centreOps:"Centre Operations",paymentTracking:"Payment Tracking",bookedToday:"Farmers booked today",liveQueue:"Live queue",estimatedWait42:"Estimated wait: 42 min",procurementCompleted:"Procurement completed",paymentsCredited:"Payments credited",yourToken:"Your token",queuePosition:"Queue position",estimatedWaiting:"Estimated waiting time",procurementCentre:"Procurement centre",simulateQueue:"Simulate queue movement",sendSms:"Send SMS alert",judgeDemo:"Judge Demo",whyMatters:"Why this matters",waitingUncertainty:"↓ Waiting uncertainty",workflow:"End-to-end workflow",bookSlot:"Book a procurement slot",registerBook:"＋ Register / Book Slot",transparency:"End-to-end transparency",procurementPayment:"Procurement & Payment Status"},
+  hi:{ministry:"उपभोक्ता मामले मंत्रालय • डेमो",title:"स्मार्ट खरीद कतार और स्थिति",subtitle:"स्लॉट बुकिंग से भुगतान तक खरीद प्रक्रिया को आसान और निश्चित बनाएं।",dashboard:"डैशबोर्ड",farmerJourney:"किसान यात्रा",centreOps:"केंद्र संचालन",paymentTracking:"भुगतान ट्रैकिंग",bookedToday:"आज बुक किए किसान",liveQueue:"लाइव कतार",estimatedWait42:"अनुमानित प्रतीक्षा: 42 मिनट",procurementCompleted:"खरीद पूरी",paymentsCredited:"भुगतान जमा",yourToken:"आपका टोकन",queuePosition:"कतार में स्थान",estimatedWaiting:"अनुमानित प्रतीक्षा समय",procurementCentre:"खरीद केंद्र",simulateQueue:"कतार की गति दिखाएं",sendSms:"SMS अलर्ट भेजें",judgeDemo:"जज डेमो",whyMatters:"यह क्यों जरूरी है",waitingUncertainty:"↓ प्रतीक्षा की अनिश्चितता",workflow:"पूरी प्रक्रिया",bookSlot:"खरीद स्लॉट बुक करें",registerBook:"＋ पंजीकरण / स्लॉट बुक करें",transparency:"पूरी प्रक्रिया में पारदर्शिता",procurementPayment:"खरीद और भुगतान स्थिति"},
+  te:{ministry:"వినియోగదారుల వ్యవహారాల మంత్రిత్వ శాఖ • డెమో",title:"స్మార్ట్ ప్రొక్యూర్‌మెంట్ క్యూ & స్థితి",subtitle:"స్లాట్ బుకింగ్ నుండి చెల్లింపు వరకు కొనుగోలు ప్రక్రియను సులభంగా చేయండి.",dashboard:"డ్యాష్‌బోర్డ్",farmerJourney:"రైతు ప్రయాణం",centreOps:"కేంద్ర నిర్వహణ",paymentTracking:"చెల్లింపు ట్రాకింగ్",bookedToday:"ఈ రోజు బుక్ చేసిన రైతులు",liveQueue:"లైవ్ క్యూ",estimatedWait42:"అంచనా వేచి ఉండే సమయం: 42 నిమిషాలు",procurementCompleted:"కొనుగోలు పూర్తైంది",paymentsCredited:"చెల్లింపులు జమయ్యాయి",yourToken:"మీ టోకెన్",queuePosition:"క్యూలో స్థానం",estimatedWaiting:"అంచనా వేచి ఉండే సమయం",procurementCentre:"కొనుగోలు కేంద్రం",simulateQueue:"క్యూ కదలికను చూపు",sendSms:"SMS అలర్ట్ పంపు",judgeDemo:"జడ్జి డెమో",whyMatters:"ఇది ఎందుకు ముఖ్యం",waitingUncertainty:"↓ వేచి ఉండే అనిశ్చితి",workflow:"మొత్తం ప్రక్రియ",bookSlot:"కొనుగోలు స్లాట్ బుక్ చేయండి",registerBook:"＋ నమోదు / స్లాట్ బుక్ చేయండి",transparency:"మొత్తం ప్రక్రియలో పారదర్శకత",procurementPayment:"కొనుగోలు & చెల్లింపు స్థితి"},
+  ta:{ministry:"நுகர்வோர் விவகார அமைச்சகம் • டெமோ",title:"ஸ்மார்ட் கொள்முதல் வரிசை & நிலை",subtitle:"ஸ்லாட் முன்பதிவு முதல் பணம் செலுத்துதல் வரை கொள்முதல் பயணத்தை எளிதாக்குங்கள்.",dashboard:"டாஷ்போர்டு",farmerJourney:"விவசாயி பயணம்",centreOps:"மைய செயல்பாடுகள்",paymentTracking:"கட்டண கண்காணிப்பு",bookedToday:"இன்று முன்பதிவு செய்த விவசாயிகள்",liveQueue:"நேரடி வரிசை",estimatedWait42:"மதிப்பிடப்பட்ட காத்திருப்பு: 42 நிமிடங்கள்",procurementCompleted:"கொள்முதல் முடிந்தது",paymentsCredited:"கட்டணம் வரவு",yourToken:"உங்கள் டோக்கன்",queuePosition:"வரிசை நிலை",estimatedWaiting:"மதிப்பிடப்பட்ட காத்திருப்பு நேரம்",procurementCentre:"கொள்முதல் மையம்",simulateQueue:"வரிசை நகர்வைக் காண்க",sendSms:"SMS எச்சரிக்கை அனுப்பு",judgeDemo:"நடுவர் டெமோ",whyMatters:"இது ஏன் முக்கியம்",waitingUncertainty:"↓ காத்திருப்பு நிச்சயமின்மை",workflow:"முழு செயல்முறை",bookSlot:"கொள்முதல் ஸ்லாட்டை முன்பதிவு செய்யுங்கள்",registerBook:"＋ பதிவு / ஸ்லாட் முன்பதிவு",transparency:"முழு செயல்முறையிலும் வெளிப்படைத்தன்மை",procurementPayment:"கொள்முதல் & கட்டண நிலை"},
+  kn:{ministry:"ಗ್ರಾಹಕ ವ್ಯವಹಾರಗಳ ಸಚಿವಾಲಯ • ಡೆಮೊ",title:"ಸ್ಮಾರ್ಟ್ ಖರೀದಿ ಕ್ಯೂ ಮತ್ತು ಸ್ಥಿತಿ",subtitle:"ಸ್ಲಾಟ್ ಬುಕ್ಕಿಂಗ್‌ನಿಂದ ಪಾವತಿವರೆಗೆ ಖರೀದಿ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಸುಗಮಗೊಳಿಸಿ.",dashboard:"ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",farmerJourney:"ರೈತರ ಪ್ರಯಾಣ",centreOps:"ಕೇಂದ್ರ ಕಾರ್ಯಾಚರಣೆ",paymentTracking:"ಪಾವತಿ ಟ್ರ್ಯಾಕಿಂಗ್",bookedToday:"ಇಂದು ಬುಕ್ ಮಾಡಿದ ರೈತರು",liveQueue:"ಲೈವ್ ಕ್ಯೂ",estimatedWait42:"ಅಂದಾಜು ಕಾಯುವಿಕೆ: 42 ನಿಮಿಷ",procurementCompleted:"ಖರೀದಿ ಪೂರ್ಣಗೊಂಡಿದೆ",paymentsCredited:"ಪಾವತಿ ಜಮೆಯಾಗಿದೆ",yourToken:"ನಿಮ್ಮ ಟೋಕನ್",queuePosition:"ಕ್ಯೂಯಲ್ಲಿನ ಸ್ಥಾನ",estimatedWaiting:"ಅಂದಾಜು ಕಾಯುವ ಸಮಯ",procurementCentre:"ಖರೀದಿ ಕೇಂದ್ರ",simulateQueue:"ಕ್ಯೂ ಚಲನೆಯನ್ನು ತೋರಿಸಿ",sendSms:"SMS ಎಚ್ಚರಿಕೆ ಕಳುಹಿಸಿ",judgeDemo:"ನ್ಯಾಯಾಧೀಶರ ಡೆಮೋ",whyMatters:"ಇದು ಏಕೆ ಮುಖ್ಯ",waitingUncertainty:"↓ ಕಾಯುವ ಅನಿಶ್ಚಿತತೆ",workflow:"ಸಂಪೂರ್ಣ ಪ್ರಕ್ರಿಯೆ",bookSlot:"ಖರೀದಿ ಸ್ಲಾಟ್ ಬುಕ್ ಮಾಡಿ",registerBook:"＋ ನೋಂದಣಿ / ಸ್ಲಾಟ್ ಬುಕ್ ಮಾಡಿ",transparency:"ಸಂಪೂರ್ಣ ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ಪಾರದರ್ಶಕತೆ",procurementPayment:"ಖರೀದಿ ಮತ್ತು ಪಾವತಿ ಸ್ಥಿತಿ"},
+  mr:{ministry:"ग्राहक व्यवहार मंत्रालय • डेमो",title:"स्मार्ट खरेदी रांग आणि स्थिती",subtitle:"स्लॉट बुकिंगपासून पेमेंटपर्यंत खरेदी प्रक्रिया सुलभ करा.",dashboard:"डॅशबोर्ड",farmerJourney:"शेतकरी प्रवास",centreOps:"केंद्र संचालन",paymentTracking:"पेमेंट ट्रॅकिंग",bookedToday:"आज बुक केलेले शेतकरी",liveQueue:"लाइव्ह रांग",estimatedWait42:"अंदाजे प्रतीक्षा: 42 मिनिटे",procurementCompleted:"खरेदी पूर्ण",paymentsCredited:"पेमेंट जमा",yourToken:"तुमचा टोकन",queuePosition:"रांगेतील स्थान",estimatedWaiting:"अंदाजे प्रतीक्षा वेळ",procurementCentre:"खरेदी केंद्र",simulateQueue:"रांगेची हालचाल दाखवा",sendSms:"SMS सूचना पाठवा",judgeDemo:"जज डेमो",whyMatters:"हे का महत्त्वाचे आहे",waitingUncertainty:"↓ प्रतीक्षेतील अनिश्चितता",workflow:"संपूर्ण प्रक्रिया",bookSlot:"खरेदी स्लॉट बुक करा",registerBook:"＋ नोंदणी / स्लॉट बुक करा",transparency:"संपूर्ण प्रक्रियेत पारदर्शकता",procurementPayment:"खरेदी आणि पेमेंट स्थिती"},
+  bn:{ministry:"ভোক্তা বিষয়ক মন্ত্রণালয় • ডেমো",title:"স্মার্ট ক্রয় কিউ ও স্ট্যাটাস",subtitle:"স্লট বুকিং থেকে পেমেন্ট পর্যন্ত ক্রয় প্রক্রিয়াকে সহজ করুন।",dashboard:"ড্যাশবোর্ড",farmerJourney:"কৃষক যাত্রা",centreOps:"কেন্দ্র পরিচালনা",paymentTracking:"পেমেন্ট ট্র্যাকিং",bookedToday:"আজ বুক করা কৃষক",liveQueue:"লাইভ কিউ",estimatedWait42:"আনুমানিক অপেক্ষা: ৪২ মিনিট",procurementCompleted:"ক্রয় সম্পন্ন",paymentsCredited:"পেমেন্ট জমা",yourToken:"আপনার টোকেন",queuePosition:"কিউতে অবস্থান",estimatedWaiting:"আনুমানিক অপেক্ষার সময়",procurementCentre:"ক্রয় কেন্দ্র",simulateQueue:"কিউ চলাচল দেখান",sendSms:"SMS সতর্কতা পাঠান",judgeDemo:"বিচারক ডেমো",whyMatters:"এটি কেন গুরুত্বপূর্ণ",waitingUncertainty:"↓ অপেক্ষার অনিশ্চয়তা",workflow:"সম্পূর্ণ প্রক্রিয়া",bookSlot:"ক্রয় স্লট বুক করুন",registerBook:"＋ নিবন্ধন / স্লট বুক করুন",transparency:"সম্পূর্ণ প্রক্রিয়ায় স্বচ্ছতা",procurementPayment:"ক্রয় ও পেমেন্ট স্ট্যাটাস"},
+  pa:{ministry:"ਖਪਤਕਾਰ ਮਾਮਲੇ ਮੰਤਰਾਲਾ • ਡੈਮੋ",title:"ਸਮਾਰਟ ਖਰੀਦ ਕਤਾਰ ਅਤੇ ਸਥਿਤੀ",subtitle:"ਸਲਾਟ ਬੁਕਿੰਗ ਤੋਂ ਭੁਗਤਾਨ ਤੱਕ ਖਰੀਦ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਆਸਾਨ ਬਣਾਓ।",dashboard:"ਡੈਸ਼ਬੋਰਡ",farmerJourney:"ਕਿਸਾਨ ਯਾਤਰਾ",centreOps:"ਕੇਂਦਰ ਕਾਰਜ",paymentTracking:"ਭੁਗਤਾਨ ਟ੍ਰੈਕਿੰਗ",bookedToday:"ਅੱਜ ਬੁੱਕ ਕੀਤੇ ਕਿਸਾਨ",liveQueue:"ਲਾਈਵ ਕਤਾਰ",estimatedWait42:"ਅਨੁਮਾਨਿਤ ਉਡੀਕ: 42 ਮਿੰਟ",procurementCompleted:"ਖਰੀਦ ਪੂਰੀ",paymentsCredited:"ਭੁਗਤਾਨ ਜਮ੍ਹਾਂ",yourToken:"ਤੁਹਾਡਾ ਟੋਕਨ",queuePosition:"ਕਤਾਰ ਵਿੱਚ ਸਥਾਨ",estimatedWaiting:"ਅਨੁਮਾਨਿਤ ਉਡੀਕ ਸਮਾਂ",procurementCentre:"ਖਰੀਦ ਕੇਂਦਰ",simulateQueue:"ਕਤਾਰ ਦੀ ਚਾਲ ਦਿਖਾਓ",sendSms:"SMS ਚੇਤਾਵਨੀ ਭੇਜੋ",judgeDemo:"ਜੱਜ ਡੈਮੋ",whyMatters:"ਇਹ ਕਿਉਂ ਮਹੱਤਵਪੂਰਨ ਹੈ",waitingUncertainty:"↓ ਉਡੀਕ ਦੀ ਅਨਿਸ਼ਚਿਤਤਾ",workflow:"ਪੂਰੀ ਪ੍ਰਕਿਰਿਆ",bookSlot:"ਖਰੀਦ ਸਲਾਟ ਬੁੱਕ ਕਰੋ",registerBook:"＋ ਰਜਿਸਟ੍ਰੇਸ਼ਨ / ਸਲਾਟ ਬੁੱਕ ਕਰੋ",transparency:"ਪੂਰੀ ਪ੍ਰਕਿਰਿਆ ਵਿੱਚ ਪਾਰਦਰਸ਼ਤਾ",procurementPayment:"ਖਰੀਦ ਅਤੇ ਭੁਗਤਾਨ ਸਥਿਤੀ"}
+};
+function setLanguage(lang){
+  const t=I18N[lang]||I18N.en;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k=el.getAttribute("data-i18n"); if(t[k]) el.textContent=t[k];
+  });
+  document.documentElement.lang=lang;
+  localStorage.setItem("smartProcurementLanguage",lang);
+}
+document.addEventListener("DOMContentLoaded",()=>{
+  const saved=localStorage.getItem("smartProcurementLanguage")||"en";
+  const sel=document.getElementById("languageSelect"); if(sel) sel.value=saved;
+  setLanguage(saved);
+});
+
+</script>
+</body>
+</html>
