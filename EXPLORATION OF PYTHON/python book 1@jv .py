@@ -34,3 +34,48 @@ print(len("vishal"))# ippudu python vishal aney discrete character lo unna all l
 print(type(45)) # ippudu ee print message ni print chestundi 
 # type funtion gives us the type of the function that we
 # zero based indexing mawa idi chala imp topic in our python  so antey manam aka single variable teeskoni manamu aa single variable lo values ni kaani leda string s ni kaani leda integers ni kaani locate chestam so 
+ 
+
+ #### CS50 lecture 2####
+# conditionals 
+## key word if else elif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
