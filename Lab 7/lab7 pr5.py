@@ -10,3 +10,5 @@ for i in range(len(a)):
                 (j+shift)==(j+shift-26)
             b=c[j+shift]
             print(b,end="")
+
+## not DONE

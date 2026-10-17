@@ -9,8 +9,9 @@ for i in range(len(a)):
         cnt+=1
     elif b==' ':
         continue
-        
+
 print(cnt)
+## not DONE
 
 
 

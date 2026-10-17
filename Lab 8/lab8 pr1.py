@@ -6,4 +6,4 @@ for v in range(len(a)):
         continue
     else:
         count+=1
-        
+       
