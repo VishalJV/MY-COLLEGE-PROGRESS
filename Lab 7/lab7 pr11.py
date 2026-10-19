@@ -2,13 +2,13 @@
 # in the paragraph. For alphabets, also check how many of them are upper case and how many are 
 #lower case alphabets. Use inbuilt string functions to check.
 a=str(input())
-dig=0
+dig=0                                   ## declaring variables for each type of characters in the paragraph 
 alp=0
 spl=0
 for i in range(len(a)):
-    if a[i].isalpha():
+    if a[i].isalpha():                  ## checking if the char is alphabet
         alp+=1
-    elif a[i].isnumeric():
+    elif a[i].isnumeric():              ## checking of the char is number
         dig+=1
     else:
         spl+=1

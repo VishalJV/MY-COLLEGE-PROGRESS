@@ -12,6 +12,7 @@ for i in range(len(a)):
 
 print(cnt)
 ## not DONE
-
+## first logic think chei
+#after code
 
 

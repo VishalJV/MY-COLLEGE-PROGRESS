@@ -1,29 +1,33 @@
-a=int(input())
-Block_1=0
-Block_2=0
-Block_3=0
-Block_4=0
-Block_5=0
-if 0<=a<=10:
-    while a!=-1:
-        a=int(input())
-        if 1<=a<=2:
-            Block_1+=1
-        elif 3<=a<=4:
-            Block_2+=1
-        elif 5<=a<=6:
-            Block_3+=1
-        elif 7<=Block_4<=8:
-            Block_4+=1
-        elif 9<=a<=10:
-            Block_5+=1
-else:
-    print("Enter a number in the given range")
+b1=0
+b2=0
+b3=0
+b4=0
+b5=0                
+cnt=-1
+while True:
+    a=int(input())
+    if 1<=a<=2:
+        b1+=1
+    elif 3<=a<=4:
+        b2+=1
+    elif 5<=a<=6:
+        b3+=1
+    elif 7<=a<=8:
+        b4+=1
+    elif 9<=a<=10:
+        b5+=1
+    if a<0 or a>0:
+        cnt+=11
+    if a==-1:
+        break
+
 print()
 print()
-print(Block_1)
-print(Block_2)
-print(Block_3)
-print(Block_4)
-print(Block_5)
+print(f"1-2:   {((b1/cnt)*100):.2f} %")
+print(f"3-4:   {((b2/cnt)*100):.2f} %")
+print(f"5-6:   {((b3/cnt)*100):.2f} %")
+print(f"7-8:   {((b4/cnt)*100):.2f} %")
+print(f"9-10:  {((b5/cnt)*100):.2f} %")
 #### not DONE 
+## logic ??
+# print(f"{(4/5):.3f}")

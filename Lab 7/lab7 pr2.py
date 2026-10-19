@@ -12,7 +12,7 @@ print(cnt)
 a=str(input())
 rev=''
 cnt=0
-for i in range(len(a)-1,-1,-1):
+for i in range(len(a)-1,-1,-1):         ## 2nd time appeared this line 
     b=a[i]
     rev=rev+b
 for i in rev:
@@ -21,3 +21,4 @@ for i in rev:
     elif i==' ':
         break
 print(cnt)
+## both the  codes work as you can sense both are designed by jv on his own no worries in this string topic
