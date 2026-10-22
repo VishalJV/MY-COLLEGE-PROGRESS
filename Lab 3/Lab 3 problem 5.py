@@ -11,6 +11,6 @@
 #     a//=10
 # print(max(a,a2,a3,a4,a5))
 
-for i in range(1,5):
-    for j in range(i,0,-1):
-        for k in range(i-1,-1):
+# for i in range(1,5):
+#     for j in range(i,0,-1):
+#         for k in range(i-1,-1):

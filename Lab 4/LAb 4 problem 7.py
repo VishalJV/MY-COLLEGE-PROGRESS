@@ -15,7 +15,7 @@ elif 101<=bud<=1000:
     else:
         print("Enter a valid season")
 elif bud>1000:
-    print("You are going to Europe with ")    
+    print("You are going to Europe with ",0.9*bud)    
 
 
 
