@@ -11,5 +11,4 @@ for v in range(len(a)):
     d=chr(jv)
     new+=d
 print(new)
-## not DONE
-## idi ee roju vacchindi logic
+
