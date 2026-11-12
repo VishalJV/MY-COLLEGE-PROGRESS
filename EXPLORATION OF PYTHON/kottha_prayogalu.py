@@ -127,27 +127,146 @@
 # python-3.11 is fast and reliable!
 
 ################  coding contest 9 one test case fail problem  #####################
-a=str(input())
-word=0
-longword=0
-lent=0
-vis="abcdefghijklmnopqrstuvwxyz"
-if len(a)<=1000:
-    for i in a:
-        if i in vis: 
-            lent+=1 #######maawa nuvvvu character  ni restrict chestunnav do not do that instead of that em use chestav antey if the character is space then word=word+1
-                    ###lekapothey if the char is not space then longword+=1 ekkadanee nee case fail ayyindi 
-                    # replace  if i in vis:  with if i !=" ": all of the code is perfect except the restriction case.........
-        if lent>longword:
-            longword=lent
-        if i==" ":
-            word+=1
-            lent=0
-        if a[0]==" " or a[-1]==" ":
-            word=word-1
-        if i not in vis:
-            longword+=1
+# a=str(input())
+# word=0
+# longword=0
+# lent=0
+# vis="abcdefghijklmnopqrstuvwxyz"
+# if len(a)<=1000:
+#     for i in a:
+#         if i in vis: 
+#             lent+=1 #######maawa nuvvvu character  ni restrict chestunnav do not do that instead of that em use chestav antey if the character is space then word=word+1
+#                     ###lekapothey if the char is not space then longword+=1 ekkadanee nee case fail ayyindi 
+#                     # replace  if i in vis:  with if i !=" ": all of the code is perfect except the restriction case.........
+#         if lent>longword:
+#             longword=lent
+#         if i==" ":
+#             word+=1
+#             lent=0
+#         if a[0]==" " or a[-1]==" ":
+#             word=word-1
+#         if i not in vis:
+#             longword+=1
 
             
-    print("Words:",word+1)
-    print("Longest Word Length:",longword)
+#     print("Words:",word+1)
+#     print("Longest Word Length:",longword)
+# n=int(input("Enter the no of students :"))
+# i=0 
+# log=[]
+# common = {0}
+# not_common={0}
+# cnt=0
+# while i!=n:
+#     a=input().split()
+#     i+=1
+#     log.append(a)               ## log.append anedi loop lopale ivvali or else a value always change aytundi kabbai append chesi tarvatha vaadukuntamu 
+# for a in range(-1,len(log)-1):
+#     i=log[a]
+#     for b in range(len(log[a])):
+#         j=i[b]
+#         if j in log[a+1]:
+#             common.add(j)
+#         elif j not in log[a+1]:
+#             not_common.add(j)
+# common.remove(0)
+# not_common.remove(0)
+# fin_cmn_lst=[]
+# fin_nt_cmn_lst=[]
+# for jv in common:
+#     fin_cmn_lst.append(jv)
+# for jv2 in not_common:
+#     fin_nt_cmn_lst.append(jv2)
+# for m in fin_nt_cmn_lst:
+#     if m not in fin_cmn_lst:
+#         cnt+=1
+# print(fin_cmn_lst)
+# print(fin_nt_cmn_lst)
+# print(cnt)
+# #print(log)
+
+# jv={1,3,4,2}
+# jv.remove(1)
+# print(jv)
+# netflix=set(map(str,input().split()))
+# prime=set(map(str,input().split()))
+# hotstar=set(map(input().split))
+# all_rounders=set()
+# only_netflix=set()
+# exclusive=set()
+# a=netflix.intersection(prime,hotstar)
+# b=netflix-a
+# c=netflix.intersection(prime)
+# d=prime.intersection(hotstar)
+# e=hotstar.intersection(netflix)
+# f=netflix&prime&hotstar
+# jv=f-a-c-d-e
+# all_rounders.add(a)
+# only_netflix.add(b)
+# exclusive.add(f)
+# print(list(exclusive))
+# print(list(all_rounders))
+# print(list(only_netflix))
+# master=set(map(input().split()))
+# role_A=set(map(input().split()))
+# role_B=set(map(input().split()))
+# if role_A.issubset(master) and role_B.issubset(master):
+#     print("VALID")
+# else:
+#     print("INVALID")
+# if role_B.isdisjoint(role_A):
+#     print("NO CONFLICT")
+# else:
+#     print("CONFLICT")
+# b=set(role_B^role_A)|set(role_A^role_B)
+# print(b)
+# main=set(input().split())
+# n=int(input("Enter the no of sets :"))
+# i=0
+# while i!=n:
+#     sattt=set(input().split())
+#     if sattt.issubset(main):
+#         a=True
+#     else:
+#         a=False
+#     if a==True:
+#         b=1
+#     else:
+#         b=0
+#     i+=1
+# if b==1:
+#     print("True")
+# else:
+#     print('False')
+# n=int(input())
+# i=0
+# count=set()
+# cnt=0
+# while i!=n:
+#     a=input()
+#     count.add(a)
+#     i+=1
+# for  i in count:
+#     cnt+=1
+# print(cnt)
+a=int(input())
+lst1=set(map(int,input()))
+b=int(input())
+lst2=set(map(int,input()))
+fin=set()
+fin.add(set(lst1)^set(lst2))
+m=list(fin)
+m.sort()
+for _ in m:
+    print(_)
+
+
+
+
+
+
+
+
+
+
+
