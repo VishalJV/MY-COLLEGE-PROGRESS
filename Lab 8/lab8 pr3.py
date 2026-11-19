@@ -30,3 +30,4 @@ else:
         print("Strong Pass")
     elif cnt<4 :                                  ## here if not all the cases are not satisfied then it becomes <4 so modeate pass 
         print("Moderate Pass")
+## done

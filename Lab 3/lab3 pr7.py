@@ -12,3 +12,4 @@ if 100 <= a<= 999:
         print("Not a Harshad number")
 else:
     print("Enter a 3 digit number only")
+## done

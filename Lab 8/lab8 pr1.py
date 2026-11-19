@@ -22,5 +22,5 @@ print("No.of consonents =",con)
 print("no.of special characters =",spl)
 print("no of spaces =",spa)
 print("No.of digits =",dig)
-
+## done
        

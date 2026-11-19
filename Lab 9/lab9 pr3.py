@@ -28,3 +28,4 @@ print("Total Runs :",runs)
 print("Total Wickets :",wkts)
 print("Total boundary's :",bndrys)
 print(fin)
+1 4 0 6 W 2 1 0 4 W 6 1

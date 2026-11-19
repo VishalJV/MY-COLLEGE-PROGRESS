@@ -16,3 +16,4 @@ for j in range(len(a)-1,-1,-1):
     if v==" ":
         break
 print(cnt2-1)
+## done

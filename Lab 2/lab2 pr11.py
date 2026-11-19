@@ -9,3 +9,4 @@ elif a==b==c:
     print("all numebers are same")
 else:
     print(c,'is greater than remianing numbers')
+## done

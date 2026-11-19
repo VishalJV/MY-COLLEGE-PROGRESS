@@ -169,6 +169,5 @@
 # print(a)
 
 
-a=set()
-a.add("q")
-print(a)
+
+print("HELLO WORLD !!!")

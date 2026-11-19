@@ -5,3 +5,4 @@ while a!=0:
     sum=sum+b
     a=a//10
 print(sum)
+## done

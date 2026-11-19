@@ -17,4 +17,4 @@ print("The no of digits :",dig)
 print("The no of alphabets :",alp)
 print("The no of splchars :",spl)
 # each character ko lelo and check krke input ki variables mai daalna ki if that taken part is integer or alphabet or any other special character
-
+## done

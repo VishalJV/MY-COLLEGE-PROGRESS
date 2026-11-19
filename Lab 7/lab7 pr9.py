@@ -12,4 +12,4 @@ print(a)
 ## jv tought if there are mixed data types in the list so how can we arrange all the element in the list as ascending or alphabetical order 
 ## JV should work on that thing
 ## Still NOT DONE explore more methods like this(notime for this particular topic exploration)
-  
+## done

@@ -8,3 +8,4 @@ if rev==a:
 else:
     print("Not a Palindrome")
 ## making it reverse and comparing it with rthe actual string if it matches the actual string or not.
+## done

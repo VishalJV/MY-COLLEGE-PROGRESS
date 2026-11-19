@@ -9,3 +9,4 @@ if rev==b:
     print("SAME")
 else:
     print("NOT SAME")
+## done

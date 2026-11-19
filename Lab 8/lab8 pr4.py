@@ -7,3 +7,4 @@ for i in range(len(a)):
         cnt+=1
         print("POSITIONS :",i)
 print("COUNT :",cnt)
+## done

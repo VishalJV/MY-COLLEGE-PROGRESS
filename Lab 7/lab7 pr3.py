@@ -14,3 +14,4 @@ for ch in sent:
         continue
     word = word + ch                                    ## remaining code is for clearing the data for the next loop
 print(cnt)                                              ## printing the count of the letter we gave as input
+## done

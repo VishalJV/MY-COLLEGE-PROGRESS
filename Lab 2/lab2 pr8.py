@@ -6,4 +6,5 @@ if com1-com2>0 :
 if com1==com2 :   
     print("Break even") 
 if com1<com2 :
-    print("company is in profits")  
+    print("company is in profits") 
+## done 

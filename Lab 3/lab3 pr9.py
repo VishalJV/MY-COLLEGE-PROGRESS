@@ -10,3 +10,4 @@ if (a1/a2)!=(b1/b2):
     print(f"The point of Intersection is : ({x:.2f} , {y:.2f})")
 elif (a1/a2)==(b1/b2):
     print("The lines are parallel to each other no point of Intersection")
+## done

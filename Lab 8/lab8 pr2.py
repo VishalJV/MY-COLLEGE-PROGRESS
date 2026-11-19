@@ -19,3 +19,4 @@ for v in range(len(a)):
     if b==' ':                      ## its a spl case we do not nee dto alter spaces given in the example so                  
         stt+=b                      ## ifthere are spaces then it adds it
 print(stt)
+## done

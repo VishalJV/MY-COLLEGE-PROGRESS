@@ -7,3 +7,4 @@ for i in range(n-2):
     print(a,b,end=" ")
 if n==2:
     print(a,b)
+## done

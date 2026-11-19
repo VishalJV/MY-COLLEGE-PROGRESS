@@ -11,3 +11,4 @@ for v in range(len(a)):
     elif b in new_string:           ## if the char is already there then skips the concatenation 
         continue
 print(new_string)
+## done

@@ -8,4 +8,4 @@ while a>0:
     a=a//10
     pro=pro*b
 print(pro)
-
+## done

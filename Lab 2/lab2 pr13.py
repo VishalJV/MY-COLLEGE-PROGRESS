@@ -12,3 +12,4 @@ elif 1000000 < gross <= 2500000:
 elif gross > 2500000:
     tax=0.3*gross
 print("The tax is",tax,"rupees")
+## done

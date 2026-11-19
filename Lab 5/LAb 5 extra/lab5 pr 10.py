@@ -9,3 +9,4 @@ if  dig==2:
     print("PRIME NUMBER")
 else:
     print("NOT A PRIME NUMBER")
+## done

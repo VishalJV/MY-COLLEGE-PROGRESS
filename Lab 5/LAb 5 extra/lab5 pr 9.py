@@ -7,3 +7,4 @@ while a!=0:
     if b==dig:
         cnt+=1
 print("The no of times the digit appeared is :",cnt)
+## done

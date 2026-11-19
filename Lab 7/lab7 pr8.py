@@ -29,4 +29,4 @@ for i in l:                             ## if the next number in the list is gre
 print(mini)
 ## inn this problem you need to access the list elements and do some opreations thats it nothing much is need to do 
 ## important is taking the inputs in the form of list, remember JV thats the catch here.
-
+## done

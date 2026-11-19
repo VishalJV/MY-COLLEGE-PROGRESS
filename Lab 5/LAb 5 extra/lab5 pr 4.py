@@ -5,3 +5,4 @@ while pow!=p:
     n=n*n
     pow+=1
 print(n)
+## done

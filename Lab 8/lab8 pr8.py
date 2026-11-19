@@ -6,3 +6,4 @@ for i in range(len(a)):
     if b not in new : 
         new+=b
 print(new)
+## done

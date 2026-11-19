@@ -10,4 +10,5 @@ if a=="A" or a=="E" or a=="I" or a=="O"or a=="U":
     print("Vowel")
 else:
     print("Consonent")
+## done
  

@@ -39,3 +39,4 @@ print(f"7-8:  {(int(F4)//10)*vis} {F4:.2f} %")
 print(f"9-10: {(int(F5)//10)*vis} {F5:.2f} %")
 
 ## finally done :)
+## done

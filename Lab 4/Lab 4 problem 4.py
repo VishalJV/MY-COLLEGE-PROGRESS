@@ -21,3 +21,4 @@ if hr==24 and mini<10:
     print("00:0",mini,sep="")   
 if 0<=hr<24 and mini<10:
     print(hr,":0",mini,sep="") 
+## done

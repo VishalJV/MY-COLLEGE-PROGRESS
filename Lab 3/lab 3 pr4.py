@@ -12,3 +12,4 @@ if 1000<=a<=9999:
         print("Sum of the first 2 digits is equal to the sum of last two digits")
 else:
     print("Enter a 4 digit number")
+## done

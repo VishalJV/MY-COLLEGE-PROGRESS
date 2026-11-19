@@ -7,4 +7,4 @@ while n !=0:                        ## mujhe division repeat honi chahiye until 
 rev_str=str(rev_str)                ## actually rev_str variable ek integer h so iam converting it into a string
 fin_str=str(rev_str[::-1])          ## reversing the string 
 print(fin_str)                      ## printing the final string
-
+## done

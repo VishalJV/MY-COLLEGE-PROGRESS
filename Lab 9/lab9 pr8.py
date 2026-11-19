@@ -8,3 +8,4 @@ print(num)
 for numbers in num:
     summ=summ+int(numbers)
 print("The total sum is :",summ)
+## done

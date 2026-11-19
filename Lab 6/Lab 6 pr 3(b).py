@@ -6,3 +6,4 @@ while j>=1 and i>=1:
     i-=1
     j-=1
 print()
+## done

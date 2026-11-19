@@ -4,3 +4,4 @@ if out<=25 :
     print("the total cost = ",out*25) 
 elif out>25 :
     print("The total cost =",out*20) 
+## done

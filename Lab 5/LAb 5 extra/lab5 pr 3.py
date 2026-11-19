@@ -10,3 +10,4 @@ while a!=-999:
         small_bills+=1
 print(big_bills+1)
 print(small_bills)
+## done

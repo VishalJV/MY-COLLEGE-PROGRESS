@@ -22,3 +22,4 @@ for i in rev:
         break
 print(cnt)
 ## both the  codes work as you can sense both are designed by jv on his own no worries in this string topic
+## done

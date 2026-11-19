@@ -26,3 +26,4 @@ elif a>=a5 and a>=a4 and a>=a3 and a>=a4 and a>=a2:
     pos=5
 print(maxi)
 print(pos)
+## done

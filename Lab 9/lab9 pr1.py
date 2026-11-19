@@ -11,4 +11,4 @@ for j in odd:
 print()
 for i in even:
     print(i,end = " ")
-
+## done

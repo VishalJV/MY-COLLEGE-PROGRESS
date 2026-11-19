@@ -8,3 +8,4 @@ for jv in a:
         min=int(jv)
 print(max)
 print(min)
+## done

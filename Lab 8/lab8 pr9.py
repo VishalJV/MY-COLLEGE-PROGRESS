@@ -18,3 +18,4 @@ for i in range(len(a)):
         d=chr(jv)       ##  <------- this line took me 6 to 7 days to think and execute
         new+=d                ## basically that means d is another variable 
 print(new)
+## done

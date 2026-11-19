@@ -19,3 +19,4 @@ else:
 # if once a letter in the b string is replaced then the next time the the letter wont appear in the b string so it cannot replace the letter so it doesnt count the next letter if it repeats multiple times in the main string
 # this code took me 30 - 45 min of my time but it was the most satisfying code in my lab 7 coding hour time 
 ## deleloped by jv on his own niceeeeeeee......
+## done

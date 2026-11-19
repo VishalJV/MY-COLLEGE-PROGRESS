@@ -5,3 +5,4 @@ for i in range(len(a)-1,-1,-1): ## this line is seen more than 2 times in this l
     b=a[i]                      ## use that for loop logic where ever you get erversing logic
     rev=rev+b
 print(rev)
+## done

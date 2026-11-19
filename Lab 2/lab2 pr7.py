@@ -8,3 +8,4 @@ if colour=='blue' and mode=='steady':
     print("clear view")  
 if colour=='blue' and mode=='flashy':
     print("clouds due")
+## done

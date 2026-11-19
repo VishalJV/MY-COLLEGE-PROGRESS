@@ -6,4 +6,4 @@ for i in range(len(a)) :
             b=a.pop(i)
             a.append(b)
 print(a)
-
+## done

@@ -7,3 +7,4 @@ while i<=1000:
     elif i%n==0:
         print(i,end="  ")
     i+=1
+## done

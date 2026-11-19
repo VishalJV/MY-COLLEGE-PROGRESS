@@ -9,4 +9,4 @@ for i in range(n):
     elif a<lar1 and a>lar2:
         lar2=a
 print(lar1,lar2)
-
+## done

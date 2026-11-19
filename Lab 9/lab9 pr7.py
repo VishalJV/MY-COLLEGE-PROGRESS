@@ -7,3 +7,4 @@ for item in a:
     word=''
 for jv in rev:
     print(jv,end=" ")
+## done
